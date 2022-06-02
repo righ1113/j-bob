@@ -1,4 +1,31 @@
 
+;; モジュールのインタフェースの定義
+(define-module j-bob-lang
+  (export
+    s.car
+    s.cdr
+    s.+
+    s.<
+    num
+    if/nil
+
+    atom
+    car
+    cdr
+    equal
+    natp
+    +
+    <
+
+    if
+    defun
+    dethm
+    size
+  )
+)
+;; モジュール本体
+(select-module j-bob-lang)
+
 (define s.car car)
 (define s.cdr cdr)
 (define s.+ +)
@@ -36,3 +63,8 @@
   (if (atom x)
     '0
     (+ '1 (+ (size (car x)) (size (cdr x))))))
+
+(provide "j-bob-lang")
+
+
+

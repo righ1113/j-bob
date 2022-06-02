@@ -1,4 +1,25 @@
 
+;; モジュールのインタフェースの定義
+(define-module j-bob
+  (use j-bob-lang)
+  (export
+    list0 list0?
+    list1 list1? elem1
+    list2 list2? elem2
+    list3 list3? elem3
+    tag tag? untag
+    quote-c quote? quote.value
+
+    J-Bob/step
+    J-Bob/prove
+    J-Bob/define
+    axioms
+    prelude
+  )
+)
+;; モジュール本体
+(select-module j-bob)
+
 (defun list0 () '())
 (defun list0? (x) (equal x '()))
 
@@ -877,3 +898,8 @@
        ((A) (if-same (atom x) 't))
        ((Q) (natp/size x))
        (() (if-true 't 'nil))))))
+
+(provide "j-bob")
+
+
+
